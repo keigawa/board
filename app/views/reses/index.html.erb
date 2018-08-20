@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Reses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Reses</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reses.each do |r| %>
+      <tr>
+        <td><%= r.content %></td>
+       <td><%= link_to 'Edit', edit_my_thread_rese_path(my_thread_id: @my_thread, id:r) %></td>
+        <td><%= link_to 'Destroy', my_thread_rese_path(my_thread_id: @my_thread, id:r), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Res', new_my_thread_rese_path(my_thread_id: @my_thread) %>
+<%= link_to 'Back', my_thread_path(@my_thread) %>
